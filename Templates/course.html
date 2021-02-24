@@ -36,25 +36,52 @@
                 <!-- start course content container -->
                 <div class="mu-course-container">
                   <div class="row">
+
+                    {% for coursesinfo in courses %}
                     <div class="col-md-6 col-sm-6">
                     <div class="mu-latest-course-single">
                       <figure class="mu-latest-course-img">
-                        <a href="#"><img src="assets/img/courses/1.jpg" alt="img"></a>
+                        <a href="#"><img src="{{ coursesinfo.course_image.url }}" alt="img" height="230"></a>
                         <figcaption class="mu-latest-course-imgcaption">
-                          <a href="#">Drawing</a>
-                          <span><i class="fa fa-clock-o"></i>90Days</span>
+                          <a href="#">{{coursesinfo.course_category}}</a>
+                          <span><i class="fa fa-clock-o"></i>{{coursesinfo.course_duration}}</span>
+                        </figcaption>
+                      </figure>
+                      <div class="mu-latest-course-single-content">
+                        <h4><a href="#">{{coursesinfo.course_title}}</a></h4>
+                        <p>{{coursesinfo.course_desc | slice:"0:150"}}<b>... </b></p>
+                        <div class="mu-latest-course-single-contbottom">
+                          <a class="mu-course-details"  href="/courseDetails/{{coursesinfo.id}}">Details</a>
+                          <span class="mu-course-price"> </span>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+                  {%endfor%}
+
+                  <div class="col-md-6 col-sm-6">
+                    <div class="mu-latest-course-single">
+                      <figure class="mu-latest-course-img">
+                        <a href="#"><img src="assets/img/courses/2.jpg" alt="img"></a>
+                        <figcaption class="mu-latest-course-imgcaption">
+                          <a href="#">Engineering </a>
+                          <span><i class="fa fa-clock-o"></i>75Days</span>
                         </figcaption>
                       </figure>
                       <div class="mu-latest-course-single-content">
                         <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quod nisi quisquam modi dolore, dicta obcaecati architecto quidem ullam quia.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quod nisi quisquam modi dolore,
+                          dicta obcaecati architecto quidem ullam quia.</p>
                         <div class="mu-latest-course-single-contbottom">
                           <a class="mu-course-details" href="#">Details</a>
                           <span class="mu-course-price" href="#">$165.00</span>
                         </div>
                       </div>
-                    </div> 
-                  </div>                  
+                    </div>
+                  </div>
+
+
+
                   <div class="col-md-6 col-sm-6">
                     <div class="mu-latest-course-single">
                       <figure class="mu-latest-course-img">
@@ -91,46 +118,8 @@
                           <span class="mu-course-price" href="#">$165.00</span>
                         </div>
                       </div>
-                    </div> 
-                  </div>                  
-                  <div class="col-md-6 col-sm-6">
-                    <div class="mu-latest-course-single">
-                      <figure class="mu-latest-course-img">
-                        <a href="#"><img src="assets/img/courses/2.jpg" alt="img"></a>
-                        <figcaption class="mu-latest-course-imgcaption">
-                          <a href="#">Engineering </a>
-                          <span><i class="fa fa-clock-o"></i>75Days</span>
-                        </figcaption>
-                      </figure>
-                      <div class="mu-latest-course-single-content">
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quod nisi quisquam modi dolore, dicta obcaecati architecto quidem ullam quia.</p>
-                        <div class="mu-latest-course-single-contbottom">
-                          <a class="mu-course-details" href="#">Details</a>
-                          <span class="mu-course-price" href="#">$165.00</span>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                  <div class="col-md-6 col-sm-6">
-                    <div class="mu-latest-course-single">
-                      <figure class="mu-latest-course-img">
-                        <a href="#"><img src="assets/img/courses/1.jpg" alt="img"></a>
-                        <figcaption class="mu-latest-course-imgcaption">
-                          <a href="#">Drawing</a>
-                          <span><i class="fa fa-clock-o"></i>90Days</span>
-                        </figcaption>
-                      </figure>
-                      <div class="mu-latest-course-single-content">
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quod nisi quisquam modi dolore, dicta obcaecati architecto quidem ullam quia.</p>
-                        <div class="mu-latest-course-single-contbottom">
-                          <a class="mu-course-details" href="#">Details</a>
-                          <span class="mu-course-price" href="#">$165.00</span>
-                        </div>
-                      </div>
-                    </div> 
-                  </div>                  
                   <div class="col-md-6 col-sm-6">
                     <div class="mu-latest-course-single">
                       <figure class="mu-latest-course-img">
