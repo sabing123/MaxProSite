@@ -1,44 +1,18 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-from django.core.paginator import Paginator
-from .models import Aboutus, CourseOffered
-
-=======
 from .models import Aboutus
 from .forms import ContactForm
 from django.contrib import messages
 from django.core.mail import mail_admins
->>>>>>> Rupesh-Branch
 
 def index(request):
     return render(request, 'index.html')
 
-<<<<<<< HEAD
-
-def courseDetails(request, myid):
-    courseinfo = CourseOffered.objects.filter(id=myid)
-    print(courseinfo)
-    return render(request, 'course-detail.html', {'courseinfo': courseinfo[0]})
-=======
 def courseDetails(request):
     return render(request, 'course-detail.html')
->>>>>>> Rupesh-Branch
 
 
 def course(request):
-<<<<<<< HEAD
-    courses = CourseOffered.objects.all()
-
-    course_paginator = Paginator(courses, 1)
-    page_num = request.GET.get('page')
-    page = course_paginator.get_page(page_num)
-
-    params = {'page': page}
-    return render(request, 'course.html', params)
-
-=======
     return render(request, 'course.html')
->>>>>>> Rupesh-Branch
 
 def aboutus(request):
     ab1 = Aboutus.objects.filter(about_category='MaxPro Computer')
