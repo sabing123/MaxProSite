@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import Aboutus, Contact
 
 # Register your models here.
@@ -10,3 +11,10 @@ class FeedbackAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email',)
     date_hierarchy = 'date'
 
+=======
+from .models import Aboutus,CourseOffered
+
+# Register your models here.
+admin.site.register(Aboutus)
+admin.site.register(CourseOffered)
+>>>>>>> master
