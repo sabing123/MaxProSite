@@ -37,3 +37,18 @@ def contact(request):
     else:
         f = ContactForm()
     return render(request, 'contact.html', {'form': f})
+
+def search(request):
+    query = request.GET['query']
+    if len(query)>78:
+        course=Book.objects.none()
+    else:
+        bookstitle = Book.objects.filter(title__icontains=query)
+        booksauthor = Book.objects.filter(author__icontains=query)
+        bookscategories = Book.objects.filter(categories__icontains=query)
+        course = bookstitle.union(booksauthor).union(bookscategories)
+    
+    if course.count()==0:
+        message.error(request,"No search result found")
+    params = {'course': course, 'query': query}
+    return render(request, 'search.html', params)
