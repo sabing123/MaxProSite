@@ -1,23 +1,27 @@
 from django.shortcuts import render
-
+from django.core.paginator import Paginator
 from .models import Aboutus, CourseOffered
 
-
-# Create your views here.
 
 def index(request):
     return render(request, 'index.html')
 
-def courseDetails(request,myid):
-    courseinfo = CourseOffered.objects.filter(id= myid)
+
+def courseDetails(request, myid):
+    courseinfo = CourseOffered.objects.filter(id=myid)
     print(courseinfo)
     return render(request, 'course-detail.html', {'courseinfo': courseinfo[0]})
 
+
 def course(request):
     courses = CourseOffered.objects.all()
-    params = {'courses': courses}
-    return render(request, 'course.html', params)
 
+    course_paginator = Paginator(courses, 1)
+    page_num = request.GET.get('page')
+    page = course_paginator.get_page(page_num)
+
+    params = {'page': page}
+    return render(request, 'course.html', params)
 
 
 def aboutus(request):
