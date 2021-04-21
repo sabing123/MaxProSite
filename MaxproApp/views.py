@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Aboutus,CourseOffered
 from .forms import ContactForm
@@ -59,14 +59,18 @@ def contact(request):
 def search(request):
     query = request.GET['query']
     if len(query)>78:
-        course=Book.objects.none()
+        course=CourseOffered.objects.none()
     else:
-        bookstitle = Book.objects.filter(title__icontains=query)
-        booksauthor = Book.objects.filter(author__icontains=query)
-        bookscategories = Book.objects.filter(categories__icontains=query)
-        course = bookstitle.union(booksauthor).union(bookscategories)
-    
-    if course.count()==0:
-        message.error(request,"No search result found")
+        coursetitle = CourseOffered.objects.filter(course_title__icontains=query)
+        coursecategories = CourseOffered.objects.filter(course_category__icontains=query)
+        course = coursetitle.union(coursecategories)
+        page = request.GET.get('page', 1)
+        paginator = Paginator(course, 2)
+        try:
+            course = paginator.page(page)
+        except PageNotAnInteger:
+            course = paginator.page(1)
+        except EmptyPage:
+            course = paginator.page(paginator.num_pages)
     params = {'course': course, 'query': query}
     return render(request, 'search.html', params)
