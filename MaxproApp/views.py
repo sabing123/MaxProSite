@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Aboutus,CourseOffered
+from .models import Aboutus,CourseOffered,Gallery
 from .forms import ContactForm
 from django.contrib import messages
 from django.core.mail import mail_admins
@@ -9,10 +9,25 @@ from django.core.mail import mail_admins
 def index(request):
     return render(request, 'index.html')
 
+def gallery(request):
+    labgallery = Gallery.objects.filter(gallery_cat='lab')
+    classroomgallery = Gallery.objects.filter(gallery_cat='classroom')
+    Studentgallery = Gallery.objects.filter(gallery_cat='students')
+    othersgallery = Gallery.objects.filter(gallery_cat='other')
+
+
+    params = {'labgallery': labgallery,'classroomgallery':classroomgallery,'Studentgallery':Studentgallery,'othersgallery':othersgallery }
+    return render(request, 'gallery.html', params)
+
 def courseDetails(request,myid):
     courseinfo = CourseOffered.objects.filter(id=myid)
     print(courseinfo)
     return render(request, 'course-detail.html', {'courseinfo': courseinfo[0]})
+
+def courseEnroll(request,myid):
+    courseinfo = CourseOffered.objects.filter(id=myid)
+    print(courseinfo)
+    return render(request, 'enroll.html', {'courseinfo': courseinfo[0]})
 
 
 def course(request):

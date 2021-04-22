@@ -3,6 +3,14 @@
 p{
 text-align: justify;
 }
+
+img{
+width:450px;
+height:280px;
+margin-top:80px;
+margin-bottom:100px;
+}
+
 {%endblock%}
 
 {% block title %} About Us {%endblock%}
@@ -12,16 +20,16 @@ text-align: justify;
 
 <!-- content -->
 {% for ab1 in ab1%}
-<div class="bg-light">
+<div class="bg-light" >
     <div class="container py-5">
-        <div class="row h-100 align-items-center py-5">
-            <div class="col-lg-6">
+        <div class="row h-100 align-items-center py-5" id="mainabout">
+            <div class="col-lg-6" >
                 <h1 class="display-4">{{ab1.about_category}}</h1>
                 <p class="lead text-muted mb-0">{{ab1.about_desc}}</p>
             </div>
             <div class="col-lg-6 d-none d-lg-block"><img
                     src="{{ ab1.about_image.url }}" alt=""
-                    class="img-fluid"></div>
+                    class="img-fluid" ></div>
         </div>
     </div>
 </div>
@@ -30,7 +38,7 @@ text-align: justify;
 {% for ab2 in ab2%}
 <div class="bg-white py-5">
     <div class="container py-5">
-        <div class="row align-items-center mb-5">
+        <div class="row align-items-center mb-5" id="mainabout">
             <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
                 <h1 class="font-weight-light">{{ab2.about_category}}</h1>
                 <p class="lead text-muted">
@@ -49,7 +57,7 @@ text-align: justify;
         {% endfor %}
 
         {% for ab3 in ab3%}
-        <div class="row align-items-center">
+        <div class="row align-items-center" id="mainabout2">
             <div class="col-lg-5 px-5 mx-auto"><img
                     src="{{ ab3.about_image.url }}" alt=""
                     class="img-fluid mb-4 mb-lg-0"></div>
