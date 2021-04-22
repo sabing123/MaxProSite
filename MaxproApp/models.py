@@ -38,4 +38,19 @@ class CourseOffered(models.Model):
     def __str__(self):
         return self.course_title
 
+Gallery_CHOICES = (
+    ('all','ALL'),
+    ('lab', 'LAB'),
+    ('classroom','CLASSROOM'),
+    ('students','STUDENTS'),
+    ('other','OTHER'),
+)
 
+class Gallery(models.Model):
+    gallery_id = models.AutoField
+    gallery_title = models.CharField(max_length=50, default="")
+    gallery_cat = models.CharField(max_length=20, choices=Gallery_CHOICES, default='all')
+    gallery_image = models.ImageField(upload_to="images/gallery", default="")
+
+    def __str__(self):
+        return self.gallery_title
