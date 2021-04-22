@@ -9,10 +9,18 @@ from django.core.mail import mail_admins
 def index(request):
     return render(request, 'index.html')
 
+def gallery(request):
+    return render(request, 'gallery.html')
+
 def courseDetails(request,myid):
     courseinfo = CourseOffered.objects.filter(id=myid)
     print(courseinfo)
     return render(request, 'course-detail.html', {'courseinfo': courseinfo[0]})
+
+def courseEnroll(request,myid):
+    courseinfo = CourseOffered.objects.filter(id=myid)
+    print(courseinfo)
+    return render(request, 'enroll.html', {'courseinfo': courseinfo[0]})
 
 
 def course(request):
