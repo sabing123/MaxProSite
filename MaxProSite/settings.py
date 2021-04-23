@@ -128,17 +128,11 @@ MEDIA_ROOT = (
 
 # Email settings
 
-SERVER_EMAIL = 'rupesh.thapa2050@gmail.com' #sending email
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'password' # app specific password
-EMAIL_HOST_USER = SERVER_EMAIL
+EMAIL_HOST_PASSWORD = "ujguhkehgatqusnc"
+EMAIL_HOST_USER = "maxpro.institute@gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-ADMINS = [
-    ('OverIQ', 'rupesh.thapa2050@gmail.com'),
-]
-
-MANAGERS = ADMINS
