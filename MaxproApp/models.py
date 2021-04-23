@@ -45,6 +45,7 @@ Gallery_CHOICES = (
     ('students','STUDENTS'),
     ('other','OTHER'),
 )
+# aaaaaa
 
 class Gallery(models.Model):
     gallery_id = models.AutoField
