@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
 from .models import Aboutus,CourseOffered,Gallery
 from .forms import ContactForm
 from django.contrib import messages
-from django.core.mail import mail_admins
+from django.conf import settings
+from django.core.mail import send_mail
 
 def index(request):
     return render(request, 'index.html')
@@ -48,20 +48,24 @@ def aboutus(request):
     return render(request, 'about.html', params)
 
 def contact(request):
-    if request.method == 'POST':
-        f = ContactForm(request.POST)
-        if f.is_valid():
-            name = f.cleaned_data['name']
-            sender = f.cleaned_data['email']
-            subject = "You have a new Feedback from {}:{}".format(name, sender)
-            message = "Subject: {}\n\nMessage: {}".format(f.cleaned_data['subject'], f.cleaned_data['message'])
-            mail_admins(subject, message)
-            f.save()
-            messages.add_message(request, messages.INFO, 'Feedback Submitted.')
-            return redirect('contact')
+    name=''
+    sender=''
+    subject=''
+    comment=''
+    f = ContactForm(request.POST or None)
+    if f.is_valid():
+        name = f.cleaned_data.POST('name')
+        sender = f.cleaned_data.POST('email')
+        subject = f.cleaned_data.POST('subject')
+        comment = f.cleaned_data.POST('message')
+        message = name + " with the email address " + sender + " with the subject " + subject + "sent an following message:/n/n" + comment;
+        send_mail(subject, message, 'maxpro.institute@gmail.com', [sender], fail_silently=False)
+        context = {'form': f}
+        messages.add_message(request, messages.INFO, 'Feedback Submitted.')
+        return render(request, 'contact.html',context)
     else:
-        f = ContactForm()
-    return render(request, 'contact.html', {'form': f})
+        context= {'form': f}
+    return render(request, 'contact.html', context)
 
 def search(request):
     query = request.GET['query']
