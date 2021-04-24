@@ -1,11 +1,15 @@
 from django.contrib import messages
 from django.core.mail import send_mail
+<<<<<<< HEAD
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 from .forms import ContactForm
 from .models import Aboutus, CourseOffered, Gallery
 
+=======
+from django.http import HttpResponseRedirect
+>>>>>>> Rupesh-Branch
 
 def index(request):
     return render(request, 'index.html')
@@ -47,24 +51,20 @@ def aboutus(request):
     return render(request, 'about.html', params)
 
 def contact(request):
-    name=''
-    sender=''
-    subject=''
-    comment=''
-    f = ContactForm(request.POST or None)
-    if f.is_valid():
-        name = f.cleaned_data.POST('name')
-        sender = f.cleaned_data.POST('email')
-        subject = f.cleaned_data.POST('subject')
-        comment = f.cleaned_data.POST('message')
-        message = name + " with the email address " + sender + " with the subject " + subject + "sent an following message:/n/n" + comment;
-        send_mail(subject, message, 'maxpro.institute@gmail.com', [sender], fail_silently=False)
-        context = {'form': f}
-        messages.add_message(request, messages.INFO, 'Feedback Submitted.')
-        return render(request, 'contact.html',context)
+    if request.method == 'POST':
+        form= ContactForm(request.POST or None)
+        if form.is_valid():
+             name= form.cleaned_data.get('name')
+             email= form.cleaned_data.get('email')
+             message=form.cleaned_data.get('message')
+             comment= name + " with the email, " + email + " sent the following message:\n\n" + message;
+             send_mail(name, comment, 'maxpro.institute@gmail.com', ['maxpro.institute@gmail.com'])
+             # context= {'form': form}
+             # return render(request, 'contact.html', context)
+             return HttpResponseRedirect('')
     else:
-        context= {'form': f}
-    return render(request, 'contact.html', context)
+        form= ContactForm()
+    return render(request, 'contact.html', {'form': form})
 
 def search(request):
     query = request.GET['query']
