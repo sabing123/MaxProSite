@@ -1,15 +1,12 @@
 from django.contrib import messages
 from django.core.mail import send_mail
-<<<<<<< HEAD
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 from .forms import ContactForm
 from .models import Aboutus, CourseOffered, Gallery
 
-=======
 from django.http import HttpResponseRedirect
->>>>>>> Rupesh-Branch
 
 def index(request):
     return render(request, 'index.html')
