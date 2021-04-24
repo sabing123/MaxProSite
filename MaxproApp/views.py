@@ -12,6 +12,9 @@ def index(request):
 def terms(request):
     return render(request, 'termsAndConditions.html')
 
+def courseDet(request):
+    return render(request, 'course-detail.html')
+
 def courseDetails(request,myid):
     courseinfo = CourseOffered.objects.filter(id=myid)
     print(courseinfo)
