@@ -15,8 +15,6 @@ def gallery(request):
     classroomgallery = Gallery.objects.filter(gallery_cat='classroom')
     Studentgallery = Gallery.objects.filter(gallery_cat='students')
     othersgallery = Gallery.objects.filter(gallery_cat='other')
-
-
     params = {'labgallery': labgallery,'classroomgallery':classroomgallery,'Studentgallery':Studentgallery,'othersgallery':othersgallery }
     return render(request, 'gallery.html', params)
 
