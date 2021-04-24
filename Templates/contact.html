@@ -2,8 +2,6 @@
 {% block title %} Max Pro | Contact {%endblock%}
 {% load static %}
 {% block body %}
-
-
  <!-- Start contact  -->
  <section id="mu-contact">
    <div class="container">
@@ -16,33 +14,38 @@
           </div>
           <!-- end title -->
           <!-- start contact content -->
-          {% if messages %}
+          <!-- {% if messages %}
           <ul class="messages">
               {% for message in messages %}
               <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
               {% endfor %}
           </ul>
-          {% endif %}
+          {% endif %} -->
           <div class="mu-contact-content">           
             <div class="row">
-              <div class="col-md-6">
-                <div class="mu-contact-left">
-                  <form class="contactform">                  
-                    <form action="" method="POST">
-                      {% csrf_token %}
-                      <table>
-                      {{ form.as_table }}                   
-                          <tr>
-                              <td></td>
-                              <td><input type="submit" value="Submit"></td>
-                          </tr>
-                      </table>
-                  </form>              
+              <div class="col-md-12">
+                <div class="mu-contact-area">
+                  <form class="jotform-form" method="POST">
+                    {% csrf_token %}
+                    <table>
+                      <tr>
+                      <td> {{ form }}</td>
+                      </tr>
+                    <tr>
+                    <td>
+                      <button type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField">Send</button>
+                  </td>  
+                  </tr>  
+                  </table>
                   </form>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="mu-contact-right">
+                </div>
+              </div>
+              <div class="mu-contact-content">           
+                <div class="row">
+              <div class="col-md-12">
+                <div class="mu-contact-area">
                   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14131.0648168468!2d85.2812989!3d27.69362!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4c0f4956f7b970f2!2sMAXPRO%20COMPUTER%20INSTITUTE!5e0!3m2!1sen!2snp!4v1612538295320!5m2!1sen!2snp"  width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
               </div>
@@ -55,6 +58,4 @@
    </div>
  </section>
  <!-- End contact  -->
-
-
  {%endblock%}
