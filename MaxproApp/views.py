@@ -9,6 +9,9 @@ from django.core.mail import mail_admins
 def index(request):
     return render(request, 'index.html')
 
+def terms(request):
+    return render(request, 'termsAndConditions.html')
+
 def courseDetails(request,myid):
     courseinfo = CourseOffered.objects.filter(id=myid)
     print(courseinfo)
@@ -66,3 +69,6 @@ def search(request):
             course = paginator.page(paginator.num_pages)
     params = {'course': course, 'query': query}
     return render(request, 'search.html', params)
+
+
+
