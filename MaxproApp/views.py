@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Aboutus,CourseOffered,Gallery
-from .forms import ContactForm
 from django.contrib import messages
-from django.conf import settings
 from django.core.mail import send_mail
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
+
+from .forms import ContactForm
+from .models import Aboutus, CourseOffered, Gallery
+
 from django.http import HttpResponseRedirect
 
 def index(request):
