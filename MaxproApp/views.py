@@ -4,12 +4,14 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 from .forms import ContactForm
-from .models import Aboutus, CourseOffered, Gallery
+from .models import Aboutus, CourseOffered, Gallery, PremiumCourses
 
 from django.http import HttpResponseRedirect
 
 def index(request):
-    return render(request, 'index.html')
+    permiumCourses = PremiumCourses.objects.filter()
+    print(permiumCourses)
+    return render(request, 'index.html',{'permiumCourses':permiumCourses})
 
 def gallery(request):
     labgallery = Gallery.objects.filter(gallery_cat='lab')
