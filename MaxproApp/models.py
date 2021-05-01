@@ -41,3 +41,13 @@ class Gallery(models.Model):
 
     def __str__(self):
         return self.gallery_title
+
+
+class PremiumCourses(models.Model):
+    course_id = models.AutoField
+    course_title = models.CharField(max_length=50, default="")
+    course_desc = models.TextField()
+    course_icon = models.ImageField(upload_to="images/premiumcoursesicon", default="")
+
+    def __str__(self):
+        return self.course_title
