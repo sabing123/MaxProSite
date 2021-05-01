@@ -3,11 +3,13 @@ from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from .models import Aboutus, CourseOffered, Gallery, StudentRegister
+from .models import Aboutus, CourseOffered, Gallery, PremiumCourses, StudentRegister
 from django.http import HttpResponseRedirect
 
 def index(request):
-    return render(request, 'index.html')
+    permiumCourses = PremiumCourses.objects.filter()
+    print(permiumCourses)
+    return render(request, 'index.html',{'permiumCourses':permiumCourses})
 
 def gallery(request):
     labgallery = Gallery.objects.filter(gallery_cat='lab')
