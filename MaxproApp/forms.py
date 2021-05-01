@@ -24,3 +24,4 @@ class ContactForm(forms.Form):
         message = cleaned_data.get('message')
         if not name and not email and not message:
             raise forms.ValidationError('You have to write something!')
+
