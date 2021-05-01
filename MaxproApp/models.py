@@ -10,7 +10,6 @@ class Aboutus(models.Model):
 
     def __str__(self):
         return self.about_category
-        
 
 
 class CourseOffered(models.Model):
@@ -43,6 +42,7 @@ class Gallery(models.Model):
         return self.gallery_title
 
 
+<<<<<<< HEAD
 class PremiumCourses(models.Model):
     course_id = models.AutoField
     course_title = models.CharField(max_length=50, default="")
@@ -51,3 +51,20 @@ class PremiumCourses(models.Model):
 
     def __str__(self):
         return self.course_title
+=======
+class StudentRegister(models.Model):
+    std_id = models.AutoField
+    first_name = models.CharField(max_length=50, default="")
+    middle_name = models.CharField(max_length=50, default="")
+    last_name = models.CharField(max_length=50, default="")
+    birthdate = models.DateField()
+    gender = models.CharField(max_length=20)
+    city = models.CharField(max_length=50, default="")
+    state = models.CharField(max_length=50, default="")
+    email = models.EmailField()
+    mobile = models.CharField(max_length=50, default="")
+    course = models.ForeignKey(CourseOffered, on_delete=models.CASCADE )
+
+    def __str__(self):
+        return self.first_name
+>>>>>>> Rupesh-Branch

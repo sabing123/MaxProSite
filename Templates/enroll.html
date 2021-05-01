@@ -2,302 +2,6 @@
 {% block title %} Course Enroll | {{courseinfo.course_title}} {%endblock%}
 {% load static %}
 {% block css  %}
-/* Injected CSS Code */
-
-      /*PREFERENCES STYLE*/
-      /* NEW THEME STYLE */
-      .supernova {
-        background-color: undefined;
-      }
-      .form-all {
-        margin-top: 72px;
-        background-color: undefined;
-        box-shadow: undefined
-      }
-      .form-line-active {
-        background-color: undefined;
-      }
-      .form-line-error {
-        background-color: undefined;
-      }
-      .form-line-error input:not(#coupon-input):not(.form-validation-error) {
-        border-color: undefined;
-      }
-      .form-label {
-        color: undefined;
-      }
-      .form-sub-label {
-        color: undefined;
-      }
-      .form-dropdown,
-      .form-textarea,
-      .form-textbox,
-      .form-checkbox + label:before, .form-radio + label:before,
-      .form-radio + span:before, .form-checkbox + span:before {
-        border-color: undefined;
-        background-color: undefined;
-        color: undefined;
-      }
-      .rating-item label {
-        border-color: undefined;
-        color: undefined;
-        background-color: undefined;
-      }
-      .rating-item-title.for-to > label:first-child,
-      .rating-item-title.for-from > label:first-child {
-        background-color: transparent;
-        color: undefined;
-      }
-      .appointmentCalendarContainer .monthYearPicker .pickerItem+.pickerItem {
-        border-left-color: undefined;
-      }
-      .appointmentCalendarContainer {
-        background-color: undefined;
-        border-color: undefined;
-      }
-      .appointmentCalendarContainer .currentDate,
-      .appointmentCalendarContainer .pickerItem .pickerYear,
-      .appointmentCalendarContainer .pickerItem .pickerMonth
-      {
-        color: undefined;
-      }
-      .appointmentCalendar .calendarDay {
-        color: undefined;
-    }
-      .appointmentCalendarContainer .monthYearPicker{
-        border-color: undefined;
-      }
-      .rating-item input:focus+label, .rating-item input:hover+label {
-        color: undefined;
-      }
-      .appointmentCalendar .calendarDay.isUnavailable,
-      ::placeholder {
-        color: undefined;
-      }
-      .form-spinner-button-container > *,
-      .appointmentDayPickerButton,
-      .form-matrix-column-headers, .form-matrix-row-headers {
-        background-color: undefined;
-      }
-      .appointmentCalendar .dayOfWeek {
-        background-color: undefined;
-        color: undefined;
-      }
-      .form-matrix-values {
-        background-color: undefined;
-      }
-      .rating-item input:focus+label, .rating-item input:hover+label {
-        color: undefined;
-        background-color: undefined;
-        border-color: undefined;
-      }
-      .rating-item input:checked+label {
-        background-color: undefined;
-        border-color:undefined;
-        color: #fff;
-      }
-      .form-checkbox + label, .form-radio + label :not(.rating-item){
-        color: undefined;
-      }
-      .form-dropdown:hover, .form-textarea:hover, .form-textbox:hover, .form-checkbox:hover + label:before, .form-radio:hover + label:before {
-        border-color: undefined;
-        box-shadow: undefined;
-      }
-      .form-dropdown:focus, .form-textarea:focus, .form-textbox:focus, .form-checkbox:focus + label:before, .form-radio:focus + label:before {
-        border-color: undefined;
-        box-shadow: undefined;
-      }
-      .form-matrix-column-headers, .form-matrix-table td, .form-matrix-table td:last-child, .form-matrix-table th, .form-matrix-table th:last-child, .form-matrix-table tr:last-child td, .form-matrix-table tr:last-child th, .form-matrix-table tr:not([role=group])+tr[role=group] th,
-      .form-matrix-column-headers, .form-matrix-table td,
-      .form-matrix-table td:last-child, .form-matrix-table th,
-      .form-matrix-table th:last-child, .form-matrix-table tr:last-child td,
-      .form-matrix-table tr:last-child th,
-      .form-matrix-table tr:not([role=group])+tr[role=group] th
-      {
-        border-color: undefined;
-        color: undefined;
-      }
-      .form-matrix-headers.form-matrix-column-headers,
-      .isSelected .form-matrix-column-headers:nth-last-of-type(2) {
-        border-color: undefined;
-      }
-      .form-radio:checked + label:after {
-        background-color: undefined;
-      }
-      .form-checkbox:checked + label:before {
-        background-color: undefined;
-        border-color: undefined;
-      }
-      .form-radio:checked + label:before {
-        border-color: undefined;
-      }
-      .form-header {
-        color: undefined;
-      }
-      .jSignature, .signature-pad-passive {
-        border-color: undefined;
-      }
-      .form-header-group .form-subHeader {
-        color: undefined;
-      }
-      .form-header-group {
-        border-color: undefined;
-      }
-      .header-large {
-        color: undefined;
-        border-color: undefined;
-      }
-      li[data-type="control_text"] .form-html {
-        color: undefined;
-      }
-      li[data-type="control_datetime"] .extended .allowTime-container + .form-sub-label-container {
-        background-color: undefined;
-      }
-      .submit-button {
-        background-color: undefined;
-        border-color: undefined;
-      }
-      .form-sacl-button, form-submit-print {
-        color: undefined;
-      }
-      .form-pagebreak-back {
-        background-color: undefined;
-        border-color: undefined;
-      }
-      .form-pagebreak-next {
-        background-color: undefined;
-      }
-      .form-pagebreak, .form-pagebreak > div {
-        border-color: undefined;
-      }
-      .form-buttons-wrapper, .form-pagebreak, .form-submit-clear-wrapper {
-        border-color: undefined;
-      }
-
-      /* NEW THEME STYLE */
-      /*PREFERENCES STYLE*/
-      /*PREFERENCES STYLE*/
-    .form-all {
-      font-family: Inter, sans-serif;
-    }
-    .form-all .qq-upload-button,
-    .form-all .form-submit-button,
-    .form-all .form-submit-reset,
-    .form-all .form-submit-print {
-      font-family: Inter, sans-serif;
-    }
-    .form-all .form-pagebreak-back-container,
-    .form-all .form-pagebreak-next-container {
-      font-family: Inter, sans-serif;
-    }
-    .form-header-group {
-      font-family: Inter, sans-serif;
-    }
-    .form-label {
-      font-family: Inter, sans-serif;
-    }
-
-    .form-label.form-label-auto {
-
-    display: block;
-    float: none;
-    text-align: left;
-    width: 100%;
-
-    }
-
-    .form-line {
-      margin-top: 12px 36px 12px 36px px;
-      margin-bottom: 12px 36px 12px 36px px;
-    }
-
-    .form-all {
-      max-width: 752px;
-      width: 100%;
-    }
-
-    .form-label.form-label-left,
-    .form-label.form-label-right,
-    .form-label.form-label-left.form-label-auto,
-    .form-label.form-label-right.form-label-auto {
-      width: 230px;
-    }
-
-    .form-all {
-      font-size: 16px
-    }
-    .form-all .qq-upload-button,
-    .form-all .qq-upload-button,
-    .form-all .form-submit-button,
-    .form-all .form-submit-reset,
-    .form-all .form-submit-print {
-      font-size: 16px
-    }
-    .form-all .form-pagebreak-back-container,
-    .form-all .form-pagebreak-next-container {
-      font-size: 16px
-    }
-
-    .supernova .form-all, .form-all {
-      background-color: #fff;
-      border: 1px solid transparent;
-    }
-  .form-all {
-    color: #2C3345;
-  }
-  .form-label-top,
-  .form-label-left,
-  .form-label-right,
-  .form-html,
-  .form-checkbox-item label,
-  .form-radio-item label {
-    color: #2C3345;
-  }
-
-    .supernova {
-      background-color: #ecedf3;
-    }
-    .supernova body {
-      background: transparent;
-    }
-
-    .form-textbox,
-    .form-textarea,
-    .form-radio-other-input,
-    .form-checkbox-other-input,
-    .form-captcha input,
-    .form-spinner input {
-      background-color: #fff;
-    }
-
-      .supernova {
-        height: 100%;
-        background-repeat: repeat;
-        background-attachment: scroll;
-        background-position: center top;
-      }
-      .supernova {
-        background-image: url("//www.jotform.com/images/brushed.png");
-      }
-      #stage {
-        background-image: url("//www.jotform.com/images/brushed.png");
-      }
-
-      .form-all {
-        background-image: url("//www.jotform.com/images/brushed.png");
-        background-repeat: repeat;
-        background-attachment: scroll;
-        background-position: center top;
-      }
-
-  .ie-8 .form-all:before { display: none; }
-  .ie-8 {
-    margin-top: auto;
-    margin-top: initial;
-  }
-
-  /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
-    /* Injected CSS Code */
 {%endblock%}
 {% block body %}
 
@@ -317,9 +21,12 @@
      </div>
    </div>
  </section>
+ <!-- <form class="signup-form" action="/studentReg/{{courseinfo.pk}}" method="POST">
+  {% csrf_token %}
+  {{ form.as_table }}
+</form> -->
 
-
-<form class="jotform-form" action="#" method="post" name="form_210653564138455" id="210653564138455" accept-charset="utf-8" autocomplete="on">
+<form class="jotform-form" action="/studentReg/{{courseinfo.id}}" method="post" name="form_210653564138455" id="210653564138455" accept-charset="utf-8" autocomplete="on">
     {% csrf_token %}
   <input type="hidden" name="formID" value="210653564138455" />
   <input type="hidden" id="JWTContainer" value="" />
@@ -384,18 +91,18 @@
             <span class="form-sub-label-container" style="vertical-align:top">
               <select name="q24_birthDate24[month]" id="input_24_month" class="form-dropdown" data-component="birthdate-month" aria-labelledby="label_24 sublabel_24_month">
                 <option>  </option>
-                <option value="January"> January </option>
-                <option value="February"> February </option>
-                <option value="March"> March </option>
-                <option value="April"> April </option>
-                <option value="May"> May </option>
-                <option value="June"> June </option>
-                <option value="July"> July </option>
-                <option value="August"> August </option>
-                <option value="September"> September </option>
-                <option value="October"> October </option>
-                <option value="November"> November </option>
-                <option value="December"> December </option>
+                <option value="01"> January </option>
+                <option value="02"> February </option>
+                <option value="03"> March </option>
+                <option value="04"> April </option>
+                <option value="05"> May </option>
+                <option value="06"> June </option>
+                <option value="07"> July </option>
+                <option value="08"> August </option>
+                <option value="09"> September </option>
+                <option value="10"> October </option>
+                <option value="11"> November </option>
+                <option value="12"> December </option>
               </select>
               <label class="form-sub-label" for="input_24_month" id="sublabel_24_month" style="min-height:13px" aria-hidden="false"> Month </label>
             </span>
@@ -551,10 +258,10 @@
         <label class="form-label form-label-top" id="label_3" for="input_3"> Gender </label>
         <div id="cid_3" class="form-input-wide" data-layout="half">
           <select class="form-dropdown" id="input_3" name="q3_gender" style="width:310px" data-component="dropdown" aria-labelledby="label_3">
-            <option value=""> Please Select </option>
+            <option value="Select"> Please Select </option>
             <option value="Male"> Male </option>
             <option value="Female"> Female </option>
-            <option value="N/A"> Other</option>
+            <option value="Other"> Other</option>
           </select>
         </div>
       </li>
@@ -562,14 +269,6 @@
         <label class="form-label form-label-top form-label-auto" id="label_23" for="input_23_addr_line1"> Address </label>
         <div id="cid_23" class="form-input-wide" data-layout="full">
           <div summary="" class="form-address-table jsTest-addressField">
-            <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-              <span class="form-address-line form-address-street-line jsTest-address-lineField">
-                <span class="form-sub-label-container" style="vertical-align:top">
-                  <input type="text" id="input_23_addr_line1" name="q23_address[addr_line1]" class="form-textbox form-address-line" value="" data-component="address_line_1" aria-labelledby="label_23 sublabel_23_addr_line1" required="" />
-                  <label class="form-sub-label" for="input_23_addr_line1" id="sublabel_23_addr_line1" style="min-height:13px" aria-hidden="false"> Street Address </label>
-                </span>
-              </span>
-            </div>
 
             <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
               <span class="form-address-line form-address-city-line jsTest-address-lineField ">
@@ -649,6 +348,4 @@ for (var i = 0; i < all_spc.length; i++)
   </script>
 
 </form>
-
-
 {%endblock%}
