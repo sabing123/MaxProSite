@@ -1,11 +1,11 @@
 from django.contrib import admin
-
-from .models import Aboutus, CourseOffered,Gallery
+from .models import Aboutus, CourseOffered, Gallery, StudentRegister
 
 # Register your models here.
 admin.site.register(Aboutus)
 admin.site.register(CourseOffered)
 admin.site.register(Gallery)
+admin.site.register(StudentRegister)
 
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subject','date',)
