@@ -3,9 +3,7 @@ from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from .models import Aboutus, CourseOffered, Gallery, PremiumCourses
-
-from .models import Aboutus, CourseOffered, Gallery, StudentRegister
+from .models import Aboutus, CourseOffered, Gallery, PremiumCourses, StudentRegister
 from django.http import HttpResponseRedirect
 
 def index(request):
