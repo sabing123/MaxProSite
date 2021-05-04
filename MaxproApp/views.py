@@ -1,10 +1,11 @@
-from django.contrib import messages
 from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
 from .forms import ContactForm
 from .models import Aboutus, CourseOffered, Gallery, PremiumCourses, StudentRegister
-from django.http import HttpResponseRedirect
+
 
 def index(request):
     permiumCourses = PremiumCourses.objects.filter()
@@ -109,3 +110,6 @@ def studentReg(request,myid):
         send_mail('Admin',message, 'maxpro.institute@gmail.com', ['maxpro.institute@gmail.com'])
         return HttpResponseRedirect('')
     return render(request, 'enroll.html', {'courseinfo':courseinfo})
+
+def terms(request):
+    return render(request, 'termsAndConditions.html')

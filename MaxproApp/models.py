@@ -50,6 +50,10 @@ class PremiumCourses(models.Model):
 
     def __str__(self):
         return self.course_title
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8e5a1b56c258da2851ec6c30cb4b9852981a285
 class StudentRegister(models.Model):
     std_id = models.AutoField
     first_name = models.CharField(max_length=50, default="")
@@ -65,3 +69,7 @@ class StudentRegister(models.Model):
 
     def __str__(self):
         return self.first_name
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8e5a1b56c258da2851ec6c30cb4b9852981a285
