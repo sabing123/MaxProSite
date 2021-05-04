@@ -42,7 +42,6 @@ class Gallery(models.Model):
         return self.gallery_title
 
 
-<<<<<<< HEAD
 class PremiumCourses(models.Model):
     course_id = models.AutoField
     course_title = models.CharField(max_length=50, default="")
@@ -51,7 +50,6 @@ class PremiumCourses(models.Model):
 
     def __str__(self):
         return self.course_title
-=======
 class StudentRegister(models.Model):
     std_id = models.AutoField
     first_name = models.CharField(max_length=50, default="")
@@ -67,4 +65,3 @@ class StudentRegister(models.Model):
 
     def __str__(self):
         return self.first_name
->>>>>>> Rupesh-Branch
