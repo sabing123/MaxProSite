@@ -1,10 +1,13 @@
 from django import forms
+from django.forms import ModelForm
+from .models import PremiumCourseEnroll
 
-# class ContactForm(forms.Form):
-#     name= forms.CharField(max_length=50, label="Name")
-#     email= forms.EmailField(max_length=50, label="Email")
-#     message= forms.CharField(label='Message',widget=forms.Textarea(
-#                         attrs={'placeholder': 'Enter your message here'}))
+class PremiumCourseForm(ModelForm):
+    class Meta:
+        model = PremiumCourseEnroll
+        fields = '__all__'
+    
+
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=30)
     email = forms.EmailField(max_length=254)
