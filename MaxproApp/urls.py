@@ -1,5 +1,4 @@
 from django.urls import path
-
 from . import views
 
 urlpatterns = [
@@ -13,4 +12,5 @@ urlpatterns = [
     path('gallery', views.gallery, name='gallery'),
     path('studentReg/<int:myid>', views.studentReg, name='studentReg'),
     path('termsAndConditions', views.terms, name='termsAndConditions'),
+    path('createpremium', views.premiumreg, name='createpremium'),
 ]

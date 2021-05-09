@@ -42,7 +42,7 @@ class Gallery(models.Model):
         return self.gallery_title
 
 
-class PremiumCourses(models.Model):
+class PremiumCourse(models.Model):
     course_id = models.AutoField
     course_title = models.CharField(max_length=50, default="")
     course_desc = models.TextField()
@@ -68,3 +68,21 @@ class StudentRegister(models.Model):
     def __str__(self):
         return self.first_name
 
+GENDER = (
+    ('select','SELECT'),
+    ('Male', 'MALE'),
+    ('Female', 'FEMALE'),
+    ('Other','OTHER'),
+)
+
+class PremiumCourseEnroll(models.Model):
+    crsenroll_id = models.AutoField
+    name = models.CharField(max_length=50, default="")
+    gender = models.CharField(max_length=20, choices=GENDER, default="Select")
+    city = models.CharField(max_length=50, default="")
+    phone = models.CharField(max_length=50, default="")
+    email = models.EmailField()
+    premium_course = models.ForeignKey(PremiumCourse, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name

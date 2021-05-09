@@ -3,7 +3,6 @@
 {% load static %}
 {% block body %}
 
-
 <section id="mu-slider">
     <!-- Start single slider item -->
     <div class="mu-slider-single">
@@ -163,7 +162,7 @@
                 <div class="mu-features-area">
                     <!-- Start Title -->
                     <div class="mu-title">
-                        <h2>Our Courses</h2>
+                        <h2>Our Premium Courses</h2>
                         <p></p>
                     </div>
                     <!-- End Title -->
@@ -177,7 +176,7 @@
                                     <h4>{{permiumCourses.course_title}}</h4>
                                     <p>{{permiumCourses.course_desc}}
                                     </p>
-                                    <a href="#">Register Now</a>
+                                    <a href="{% url 'createpremium' %}">Register Now</a>
                                 </div>
                             </div>
                             {%endfor%}
@@ -252,10 +251,10 @@
                                         <li> Interactive multimedia for Special Classes</li>
                                     </ol>
                                     </p>
+
                                 </div>
                             </div>
                         </div>
-
                         <!-- End latest course content -->
                     </div>
                 </div>
@@ -519,5 +518,24 @@
         </div>
     </div>
 </section>
-<!-- End from blog -->
+<!-- 
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+  
+  <button id="login-btn" class="btn btn-primary" type="button" name="button">Sign up</button>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+    
+        $(".login-btn").modalForm({
+            formURL: "{% url 'createpremium' %}"
+        });
+    
+    });
+    </script> -->
+
 {%endblock%}
+

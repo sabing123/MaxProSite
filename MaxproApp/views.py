@@ -2,13 +2,12 @@ from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-
-from .forms import ContactForm
-from .models import Aboutus, CourseOffered, Gallery, PremiumCourses, StudentRegister
+from .forms import ContactForm, PremiumCourseForm
+from .models import Aboutus, CourseOffered, Gallery, PremiumCourse, StudentRegister, PremiumCourseEnroll
 
 
 def index(request):
-    permiumCourses = PremiumCourses.objects.filter()
+    permiumCourses = PremiumCourse.objects.all()
     print(permiumCourses)
     return render(request, 'index.html',{'permiumCourses':permiumCourses})
 
@@ -32,11 +31,9 @@ def courseEnroll(request,myid):
 
 def course(request):
     courses = CourseOffered.objects.all()
-
     course_paginator = Paginator(courses, 1)
     page_num = request.GET.get('page')
     page = course_paginator.get_page(page_num)
-
     params = {'page': page}
     return render(request, 'course.html', params)
 
@@ -113,3 +110,32 @@ def studentReg(request,myid):
 
 def terms(request):
     return render(request, 'termsAndConditions.html')
+
+# def premiumenroll(request):
+#     form= PremiumCourseForm()
+#     return render(request, 'premiumform.html',{'form':form})
+    
+def premiumreg(request):
+    if request.method == 'POST':
+        form = PremiumCourseForm(request.POST or None)
+        if form.is_valid():
+            name = form.cleaned_data.get('name')
+            gender = form.cleaned_data.get('gender')
+            city = form.cleaned_data.get('city')
+            phone =  form.cleaned_data.get('phone')
+            email = form.cleaned_data.get('email')
+            pcourse = form.cleaned_data.get('premium_course')
+            penroll = PremiumCourseEnroll.objects.create(name=name,gender=gender,city=city,phone=phone,email=email,premium_course=pcourse)
+            penroll.save()    
+
+            # Message for user registering the form
+            comment= " You have successfully submitted the form to enroll in the premium course in our institute. You will soon here from us."
+            send_mail(name, comment, 'maxpro.institute@gmail.com', [email])
+
+            # Message for admin
+            message = "User with the name " + name + " has enrolled in the premium course through the website, his email is " + email + " and Mobile No. is " + phone; 
+            send_mail('Admin',message, 'maxpro.institute@gmail.com', ['maxpro.institute@gmail.com'])
+            return HttpResponseRedirect('')
+    else:
+        form = PremiumCourseForm()
+    return render(request, 'premiumform.html', {'form':form})
